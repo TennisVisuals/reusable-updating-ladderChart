@@ -8,7 +8,7 @@ function ladderChart() {
 
     var options = {
         width: window.innerWidth,
-	     height: window.innerHeight,
+        height: window.innerHeight,
         margins: {
            top:    30, bottom: 20, 
            left:   10, right:  10
@@ -152,7 +152,7 @@ function ladderChart() {
                plot_width  = options.width  - (options.margins.left + options.margins.right);
                plot_height = options.height - (options.margins.top + options.margins.bottom);
 
-               var roundScale = d3.scale.ordinal()
+               var ladderScale = d3.scale.ordinal()
                   .range(options.plot.content.rows)
                   .domain(d3.range(0, options.plot.content.rows.length, 1));
 
@@ -175,7 +175,7 @@ function ladderChart() {
                    .orient("left")
                    .ticks(options.plot.content.rows.length)
                    .tickSize(-plot_width, 0, 0)
-                   .tickFormat(roundScale)
+                   .tickFormat(ladderScale)
                    .scale(yScale);
 
                root
