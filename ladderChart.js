@@ -15,7 +15,7 @@ function ladderChart() {
         },
         data: {
            calculateDomain:   true,
-           oneYearMinimum:    true,
+           oneYearMinimum:    false,
            fullYearsOnly:     false
         },
         plot: {
@@ -123,8 +123,8 @@ function ladderChart() {
 
                if (options.display.sizeToFit || (opts && opts.sizeToFit)) {
                   var dims = dom_parent.node().getBoundingClientRect();
-                  options.width = dims.width;
-                  options.height = dims.height;
+                  options.width = Math.max(dims.width, 300);
+                  options.height = Math.min(Math.max(options.width / 3, 100), 200);
                }
 
                if (!options.data.calculateDomain) {
